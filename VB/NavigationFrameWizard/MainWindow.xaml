@@ -1,0 +1,33 @@
+﻿<dx:DXWindow xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:NavigationFrameWizard"
+	x:Class="NavigationFrameWizard.MainWindow"
+	Title="MainWindow" Height="550" Width="825">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Content="Add new customer" VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Command="{Binding AddCommand}"/>
+        <dxg:GridControl AutoGenerateColumns="AddNew" ItemsSource="{Binding Customers}" Grid.Row="1">
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn FieldName="Orders" Visible="False"/>
+            </dxg:GridControl.Columns>
+            <dxg:GridControl.DetailDescriptor>
+                <dxg:DataControlDetailDescriptor ItemsSourcePath="Orders">
+                    <dxg:DataControlDetailDescriptor.DataControl>
+                        <dxg:GridControl AutoPopulateColumns="True">
+                            <dxg:GridControl.View>
+                                <dxg:TableView AutoWidth="True" ShowGroupPanel="False" />
+                            </dxg:GridControl.View>
+                        </dxg:GridControl>
+                    </dxg:DataControlDetailDescriptor.DataControl>
+                </dxg:DataControlDetailDescriptor>
+            </dxg:GridControl.DetailDescriptor>
+            <dxg:GridControl.View>
+                <dxg:TableView IsDetailButtonVisibleBinding="{Binding Row.Orders, Converter={local:HasOrdersConverter}}"/>
+            </dxg:GridControl.View>
+        </dxg:GridControl>
+    </Grid>
+</dx:DXWindow>
