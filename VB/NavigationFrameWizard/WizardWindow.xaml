@@ -1,4 +1,4 @@
-﻿<dx:DXWindow xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui" 
+<dx:DXWindow xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui" 
 	xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	x:Class="NavigationFrameWizard.WizardWindow" 
